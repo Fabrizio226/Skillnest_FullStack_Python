@@ -72,3 +72,6 @@ for sistemaestelar in range (inicio, fin, salto):
 # Ejemplo: si inicio = 3, fin = 10, y salto = 2
 # Se imprimiría: 4, 6, 8, 10
 
+#¿Cuál de estos ejercicios te pareció más útil o interesante para aplicarlo en un contexto real, ya sea un videojuego o cualquier aplicación?
+
+#R: El ejericio 6 por los sitemas de inicio, los checkpoints y el final para un videojuego plataformero
