@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Motor de Plantillas</title>
+</head>
+<body>
+
+    {# Comentario de prueba #}
+
+    <header>
+        <h1>Bienvenido, {{ nombre }} {{ apellido }}</h1>
+        <p>Curso: {{ curso }}</p>
+        <p>Institución: {{ institucion }}</p>
+        <p>Año: {{ anio }}</p>
+    </header>
+
+    <main>
+        <section>
+            {% if es_docente %}
+                <p>Perfil: <strong>Docente</strong> - Acceso de edición permitido.</p>
+            {% else %}
+                <p>Perfil: <strong>Estudiante</strong> - ¡Bienvenido!</p>
+            {% endif %}
+        </section>
+
+        <section>
+            <h2>Tecnologías</h2>
+            <ul>
+                {% for tecnologia in tecnologias %}
+                    <li>{{ tecnologia }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+
+</body>
+</html>
