@@ -13,6 +13,7 @@ jugadores = [
 
 
 # Ruta para mostrar el ranking de jugadores
+@app.route("/")
 @app.route("/ranking")
 def ranking():
     return render_template(

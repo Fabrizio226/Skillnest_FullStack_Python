@@ -1,0 +1,313 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f7fb;
+    color: #2d3748;
+    padding-bottom: 50px;
+}
+
+/* Header principal */
+.header {
+    text-align: center;
+    padding: 30px 20px 20px;
+}
+
+.header h1 {
+    color: #3b5998;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.subtitle {
+    color: #718096;
+    margin-top: 4px;
+    font-size: 1rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-blue { background-color: #1a73e8; }
+.btn-green { background-color: #107c41; }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Grilla de Cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Tarjeta */
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabecera azul clara de la tarjeta */
+.card-header {
+    background: linear-gradient(180deg, #eef3fb 0%, #e3ecf8 100%);
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+}
+
+.badge-id {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #4a5568;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.card-header img {
+    max-height: 140px;
+    max-width: 140px;
+    object-fit: contain;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3, .card-body h2 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+/* Badges de Tipo */
+.types {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.type-badge {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+
+/* Colores personalizados por tipo */
+.planta { background-color: #78c850; }
+.veneno { background-color: #a040a0; }
+.fuego { background-color: #f08030; }
+.agua { background-color: #6890f0; }
+.eléctrico { background-color: #f8d030; color: #333; }
+.normal { background-color: #a8a878; }
+.hada { background-color: #ee99ac; }
+.fantasma { background-color: #705898; }
+.roca { background-color: #b8a038; }
+.tierra { background-color: #e0c068; }
+
+/* Barra de Poder */
+.stat-power {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 4px;
+}
+
+.progress-bar {
+    background-color: #edf2f7;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    background-color: #3b5998;
+    height: 100%;
+    border-radius: 6px;
+}
+
+.power-val {
+    position: absolute;
+    right: 6px;
+    top: -2px;
+    font-size: 0.65rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Altura y Peso */
+.measures {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8fafc;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.measure-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.measure-item small {
+    font-size: 0.7rem;
+    color: #718096;
+}
+
+.measure-item strong {
+    font-size: 0.85rem;
+    color: #2d3748;
+}
+
+/* Botón Ver Detalles */
+.btn-details {
+    margin-top: auto;
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    border: 1px solid #3b5998;
+    color: #3b5998;
+    background: transparent;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-details:hover {
+    background-color: #3b5998;
+    color: white;
+}
+
+/* Vista Detalle Centrada */
+.detail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.detail-card {
+    width: 100%;
+    max-width: 360px;
+}
+
+/* --- Estilos para la página 404 --- */
+.error-body {
+    background-color: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.error-card {
+    background: #ffffff;
+    max-width: 500px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.error-title {
+    color: #3b5998;
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    color: #2d3748;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.error-badge {
+    color: #e53e3e;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.error-subtext {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #1a73e8;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-home:hover {
+    background-color: #1557b0;
+}

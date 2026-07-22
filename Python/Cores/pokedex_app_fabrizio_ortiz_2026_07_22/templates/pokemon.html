@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Encabezado central -->
+    <header class="header">
+        <h1>Pokédex</h1>
+        <p class="subtitle">{{ titulo }}</p>
+        <div class="actions">
+            <a href="/" class="btn btn-blue">☰ Ver todos</a>
+            <a href="/pokemon/limit/5" class="btn btn-green">▼ Ver 5 primeros</a>
+        </div>
+    </header>
+
+    <main class="container">
+        {% if pokemons %}
+            <!-- Grilla de Tarjetas -->
+            <div class="grid">
+                {% for p in pokemons %}
+                <div class="card">
+                    <!-- Cabecera de la tarjeta con badge de ID -->
+                    <div class="card-header">
+                        <span class="badge-id">#{{ p.id }}</span>
+                        <img src="{{ url_for('static', filename='img/bullbasaur.png') }}" alt="{{ p.nombre }}">
+                    </div>
+
+                    <!-- Cuerpo de la tarjeta -->
+                    <div class="card-body">
+                        <h3>{{ p.nombre }}</h3>
+                        
+                        <!-- Badges de Tipo -->
+                        <div class="types">
+                            {% for tipo in p.tipo.split('/') %}
+                                <span class="type-badge {{ tipo.lower() }}">{{ tipo }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Barra de Poder -->
+                        <div class="stat-power">
+                            <div class="stat-label">⚡ Poder</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ (p.poder / 160) * 100 }}%;"></div>
+                                <span class="power-val">{{ p.poder }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Altura y Peso -->
+                        <div class="measures">
+                            <div class="measure-item">
+                                <small>📏 Altura</small>
+                                <strong>{{ p.altura }}</strong>
+                            </div>
+                            <div class="measure-item">
+                                <small>⚖ Peso</small>
+                                <strong>{{ p.peso }}</strong>
+                            </div>
+                        </div>
+
+                        <!-- Botón Ver Detalles -->
+                        <a href="/pokemon/{{ p.id }}" class="btn-details">Ver detalles</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        {% elif pokemon %}
+            <!-- Vista de Detalle Individual -->
+            <div class="detail-container">
+                <div class="card detail-card">
+                    <div class="card-header">
+                        <span class="badge-id">#{{ pokemon.id }}</span>
+                        <img src="{{ url_for('static', filename=pokemon.imagen) }}" alt="{{ pokemon.nombre }}">
+                    </div>
+                    <div class="card-body">
+                        <h2>{{ pokemon.nombre }}</h2>
+                        <div class="types">
+                            {% for tipo in pokemon.tipo.split('/') %}
+                                <span class="type-badge {{ tipo.lower() }}">{{ tipo }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="stat-power" style="margin-top: 15px;">
+                            <div class="stat-label">⚡ Poder: <strong>{{ pokemon.poder }}</strong></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ (pokemon.poder / 160) * 100 }}%;"></div>
+                            </div>
+                        </div>
+                        <div class="measures" style="margin-top: 15px;">
+                            <div class="measure-item">
+                                <small>📏 Altura</small>
+                                <strong>{{ pokemon.altura }}</strong>
+                            </div>
+                            <div class="measure-item">
+                                <small>⚖ Peso</small>
+                                <strong>{{ pokemon.peso }}</strong>
+                            </div>
+                        </div>
+                        <a href="/" class="btn-details" style="margin-top: 20px;">Volver al menú</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </main>
+
+</body>
+</html>
