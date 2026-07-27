@@ -16,7 +16,7 @@ pokedex = [
 ]
 
 
-# Ruta para mostrar todos los Pokémon
+# Ruta para mostrar todos los Pokémon 
 @app.route("/")
 @app.route("/pokemon")
 def index():

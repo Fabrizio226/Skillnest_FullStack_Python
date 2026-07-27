@@ -2,38 +2,50 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
-    background-color: #f5f7fb;
-    color: #2d3748;
-    padding-bottom: 50px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding-bottom: 60px;
 }
 
-/* Header principal */
 .header {
     text-align: center;
-    padding: 30px 20px 20px;
+    padding: 40px 20px 20px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.pokeball-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .header h1 {
-    color: #3b5998;
-    font-size: 2.5rem;
+    color: #2563eb;
+    font-size: 2.2rem;
     font-weight: 800;
 }
 
 .subtitle {
-    color: #718096;
-    margin-top: 4px;
-    font-size: 1rem;
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
 }
 
 .actions {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 15px;
 }
 
 .btn {
@@ -42,44 +54,45 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     display: inline-flex;
     align-items: center;
+    gap: 6px;
 }
 
-.btn-blue { background-color: #1a73e8; }
-.btn-green { background-color: #107c41; }
+.btn-blue { background-color: #2563eb; }
+.btn-green { background-color: #16a34a; }
 
+/*Contenedor y grid */
 .container {
-    max-width: 1100px;
+    max-width: 1050px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Grilla de Cards */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 24px;
     margin-top: 20px;
 }
 
-/* Tarjeta */
+/*Tarjetas*/
 .card {
-    background: white;
-    border-radius: 12px;
+    background: #ffffff;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     border: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
 }
 
-/* Cabecera azul clara de la tarjeta */
+/*heeader tarjtas*/
 .card-header {
-    background: linear-gradient(180deg, #eef3fb 0%, #e3ecf8 100%);
+    background: #eef2f7;
     position: relative;
-    padding: 20px;
+    padding: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,107 +103,106 @@ body {
     position: absolute;
     top: 12px;
     right: 12px;
-    background-color: #4a5568;
+    background-color: #475569;
     color: white;
-    font-weight: bold;
-    font-size: 0.8rem;
+    font-weight: 700;
+    font-size: 0.75rem;
     padding: 4px 8px;
     border-radius: 12px;
 }
 
 .card-header img {
-    max-height: 140px;
-    max-width: 140px;
+    max-height: 130px;
+    max-width: 130px;
     object-fit: contain;
 }
 
-/* Cuerpo de la tarjeta */
+/*body*/
 .card-body {
-    padding: 16px;
+    padding: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.card-body h3, .card-body h2 {
-    font-size: 1.25rem;
-    color: #2d3748;
-    margin-bottom: 8px;
+.card-body h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-/* Badges de Tipo */
+/*los badges*/
 .types {
     display: flex;
     justify-content: center;
     gap: 6px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .type-badge {
     color: white;
     font-size: 0.75rem;
-    font-weight: 700;
-    padding: 3px 12px;
-    border-radius: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
 }
 
-/* Colores personalizados por tipo */
-.planta { background-color: #78c850; }
-.veneno { background-color: #a040a0; }
-.fuego { background-color: #f08030; }
-.agua { background-color: #6890f0; }
-.eléctrico { background-color: #f8d030; color: #333; }
-.normal { background-color: #a8a878; }
-.hada { background-color: #ee99ac; }
-.fantasma { background-color: #705898; }
-.roca { background-color: #b8a038; }
-.tierra { background-color: #e0c068; }
+.planta, .plant { background-color: #84cc16; }
+.veneno, .poison { background-color: #a855f7; }
+.fuego, .fire { background-color: #f97316; }
+.agua, .water { background-color: #3b82f6; }
+.eléctrico, .electrico, .electric { background-color: #eab308; color: #0f172a; }
+.normal { background-color: #646e5a; }
+.hada, .fairy { background-color: #ec4899; }
+.fantasma, .ghost { background-color: #6b21a8; }
+.roca, .rock { background-color: #816a00; }
+.tierra, .ground { background-color: #d97706; }
 
-/* Barra de Poder */
+/* La barra de poder sisisi */
 .stat-power {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     text-align: left;
 }
 
-.stat-label {
+.stat-header {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #4a5568;
-    margin-bottom: 4px;
+    color: #475569;
+    margin-bottom: 6px;
 }
 
 .progress-bar {
-    background-color: #edf2f7;
-    height: 12px;
-    border-radius: 6px;
+    background-color: #e2e8f0;
+    height: 14px;
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
 }
 
 .progress-fill {
-    background-color: #3b5998;
+    background-color: #2563eb;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .power-val {
-    position: absolute;
-    right: 6px;
-    top: -2px;
     font-size: 0.65rem;
-    color: #fff;
-    font-weight: bold;
+    color: #ffffff;
+    font-weight: 700;
 }
 
-/* Altura y Peso */
+/* Altura y peso de los pokemones para no olvidarme*/
 .measures {
     display: flex;
     justify-content: space-around;
     background-color: #f8fafc;
-    padding: 8px;
+    padding: 10px;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .measure-item {
@@ -200,23 +212,25 @@ body {
 
 .measure-item small {
     font-size: 0.7rem;
-    color: #718096;
+    color: #64748b;
+    font-weight: 600;
 }
 
 .measure-item strong {
-    font-size: 0.85rem;
-    color: #2d3748;
+    font-size: 0.9rem;
+    color: #0f172a;
+    font-weight: 800;
 }
 
-/* Botón Ver Detalles */
+/* Boton de detalles */
 .btn-details {
     margin-top: auto;
     display: block;
     width: 100%;
     padding: 8px 0;
-    border: 1px solid #3b5998;
-    color: #3b5998;
-    background: transparent;
+    border: 1px solid #93c5fd;
+    color: #2563eb;
+    background: #ffffff;
     border-radius: 6px;
     text-decoration: none;
     font-size: 0.85rem;
@@ -225,11 +239,10 @@ body {
 }
 
 .btn-details:hover {
-    background-color: #3b5998;
-    color: white;
+    background-color: #eff6ff;
 }
 
-/* Vista Detalle Centrada */
+/* Vista detalle centrada :p */
 .detail-container {
     display: flex;
     justify-content: center;
@@ -238,59 +251,57 @@ body {
 
 .detail-card {
     width: 100%;
-    max-width: 360px;
+    max-width: 350px;
 }
 
-/* --- Estilos para la página 404 --- */
+/*Error para la pantalla de pokemones que no existen, nombres mal escritos, etc. la cosa es que sean errores de pkemon dsda*/
+
 .error-body {
-    background-color: #f5f7fb;
+    background-color: #f8fafc;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 85vh;
     padding: 20px;
 }
 
 .error-card {
     background: #ffffff;
-    max-width: 500px;
+    max-width: 480px;
     width: 100%;
     padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
+    border: 1px solid #e2e8f0;
 }
 
 .error-title {
-    color: #3b5998;
+    color: #2563eb;
     font-size: 3.2rem;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .error-message {
-    color: #2d3748;
-    font-size: 1.1rem;
+    color: #334155;
+    font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 20px;
 }
 
 .error-badge {
-    color: #e53e3e;
-    font-weight: 800;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    color: #dc2626;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 16px;
 }
 
 .error-subtext {
-    color: #718096;
-    font-size: 0.95rem;
+    color: #64748b;
+    font-size: 0.88rem;
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 }
 
 .btn-home {
@@ -298,16 +309,16 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background-color: #1a73e8;
+    background-color: #2563eb;
     color: white;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
-    padding: 12px 24px;
+    font-size: 0.9rem;
+    padding: 10px 20px;
     border-radius: 8px;
     transition: background-color 0.2s ease;
 }
 
 .btn-home:hover {
-    background-color: #1557b0;
+    background-color: #1d4ed8;
 }
