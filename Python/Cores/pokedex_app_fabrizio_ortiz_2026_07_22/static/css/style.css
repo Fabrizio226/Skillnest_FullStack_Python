@@ -254,7 +254,7 @@ body {
     max-width: 350px;
 }
 
-/*Error para la pantalla de pokemones que no existen, nombres mal escritos, etc. la cosa es que sean errores de pkemon dsda*/
+/*Pnatalla de error, nombres mal escritos, etc. la cosa es que sean errores de pkemon dsda*/
 
 .error-body {
     background-color: #f8fafc;
