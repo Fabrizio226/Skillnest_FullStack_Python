@@ -14,14 +14,13 @@ body {
 .main-header .main-title {
     font-size: 2.4rem;
     font-weight: 700;
-    color: #0066ff; /* Azul exacto del título */
+    color: #0066ff; 
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
 }
 
-/* Estilo para el icono bi-table de Bootstrap */
 .main-header .main-title i.bi-table {
     font-size: 2.2rem;
     color: #0066ff;
@@ -35,7 +34,7 @@ body {
     font-size: 1rem;
 }
 
-/* Tarjeta contenedora de la tabla */
+/* Tarjeta */
 .data-card {
     background: #ffffff;
     border-radius: 12px;
@@ -44,7 +43,7 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Estilos de la Tabla */
+/* Estilo */
 .table-data {
     width: 100%;
     border-collapse: separate;
@@ -73,7 +72,6 @@ body {
     border-bottom: none;
 }
 
-/* Celda con logo y texto */
 .platform-cell {
     display: flex;
     align-items: center;
@@ -87,7 +85,6 @@ body {
     object-fit: contain;
 }
 
-/* Badges / Etiquetas */
 .badge-count {
     background-color: #0066ff;
     color: white;
@@ -106,7 +103,6 @@ body {
     border: 1px solid #dee2e6;
 }
 
-/* Botón de detalles */
 .btn-details {
     color: #0dcaf0;
     background: none;
@@ -123,7 +119,6 @@ body {
     color: white;
 }
 
-/* Pie de página */
 .footer-text {
     text-align: center;
     color: #6c757d;
