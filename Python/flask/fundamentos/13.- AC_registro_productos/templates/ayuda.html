@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda - Conceptos Flask</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> | 
+        <a href="{{ url_for('ayuda') }}">Ayuda</a>
+    </nav>
+    <hr>
+
+    <h1>Centro de Ayuda</h1>
+
+    <h2> Conceptos Clave</h2>
+    <ul>
+        <li>
+            <strong>Solicitud POST:</strong> Se utiliza para enviar datos al servidor (por ejemplo, los datos de un formulario). Los datos van en el cuerpo de la petición y no visibles en la URL.
+        </li>
+        <li>
+            <strong>Solicitud GET:</strong> Se utiliza para solicitar y obtener recursos o páginas del servidor. Es el método por defecto cuando visitas un enlace.
+        </li>
+        <li>
+            <strong>¿Para qué sirve <code>redirect()</code>?</strong> Sirve para enviar al navegador una instrucción de realizar una nueva petición GET hacia otra ruta. Previene el envío duplicado de formularios al recargar la página.
+        </li>
+        <li>
+            <strong>¿Por qué <code>request.form</code> no está disponible tras la redirección?</strong> Porque <code>redirect()</code> genera una petición totalmente nueva (tipo GET), limpia de los datos que fueron enviados originalmente en el payload de la petición POST anterior.
+        </li>
+    </ul>
+
+    <hr>
+    <a href="{{ url_for('index') }}">Volver al Inicio</a>
+</body>
+</html>
