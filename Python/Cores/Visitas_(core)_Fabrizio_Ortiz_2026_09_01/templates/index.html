@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Visitas</title>
+    <!-- Enlace al archivo CSS en la carpeta static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contador de Visitas</h1>
+
+        <div class="counter-box">
+            <h2>{{ session['visitas'] }} Visitas</h2>
+            <p>Reiniciado: {{ session['reinicios'] }} veces</p>
+        </div>
+
+        <form action="/sumar_dos" method="GET">
+            <button type="submit" class="btn-primary">Incrementar +2</button>
+        </form>
+
+        <form action="/incrementar_personalizado" method="POST" class="custom-increment">
+            <input type="number" id="numero" name="numero" value="1" min="1" required>
+            <button type="submit" class="btn-primary">Sumar</button>
+        </form>
+
+        <form action="/reiniciar" method="GET">
+            <button type="submit" class="btn-secondary">Reiniciar a 0</button>
+        </form>
+
+        <form action="/destruir_sesion" method="GET">
+            <button type="submit" class="btn-danger">Destruir Sesión</button>
+        </form>
+    </div>
+
+</body>
+</html>
