@@ -11,7 +11,7 @@ PREDICCIONES = [
     "Una antigua amistad regresará a tu vida para ofrecerte una gran oportunidad."
 ]
 
-# Ojala las predicciones sean acertadas
+# Ojala las predicciones sean acertadas para mi futuro :C
 
 @app.route("/")
 def index():
@@ -25,6 +25,7 @@ def enviar():
     session["animal"] = request.form.get("animal")
     
     # Generar predicción y número de la suerte aleatorio (1-100)
+    # Yo ni suerte tengo pero aqui esta
     session["prediccion"] = random.choice(PREDICCIONES)
     session["numero_suerte"] = random.randint(1, 100)
     
