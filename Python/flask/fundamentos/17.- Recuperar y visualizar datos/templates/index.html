@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+</head>
+<body>
+
+    <h1>{{ titulo if titulo else "Las mascotas" }}</h1>
+
+    <!-- Enlaces de navegación rápida -->
+    <nav>
+        <a href="/">Ver todas</a> | 
+        <a href="/mascotas/perros">Ver solo perros</a>
+    </nav>
+    <br>
+
+    <!-- ==================================================
+         COMPROBAR SI EXISTEN MASCOTAS
+    =================================================== -->
+    {% if todas_mascotas %}
+
+        <!-- ==================================================
+             RECORRER MASCOTAS
+        =================================================== -->
+        {% for una_mascota in todas_mascotas %}
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                <p>
+                    <b>ID:</b> {{ una_mascota.id }} <br>
+                    <b>Nombre:</b> {{ una_mascota.nombre }} <br>
+                    <b>Tipo:</b> {{ una_mascota.tipo }} <br>
+                    <b>Color:</b> {{ una_mascota.color }} <br>
+                    <b>Creado:</b> {{ una_mascota.created_at }} <br>
+                    <b>Actualizado:</b> {{ una_mascota.updated_at }}
+                </p>
+            </div>
+        {% endfor %}
+
+    {% else %}
+
+        <!-- ==================================================
+             SIN REGISTROS
+        =================================================== -->
+        <p>No existen mascotas registradas en esta sección.</p>
+
+    {% endif %}
+
+</body>
+</html>
