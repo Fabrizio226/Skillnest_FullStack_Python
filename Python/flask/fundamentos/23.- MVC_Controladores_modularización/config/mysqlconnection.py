@@ -11,7 +11,7 @@ import pymysql.cursors
 
 class MySQLConnection:
     """
-    Administra una conexión entre Python y MySQL.
+    Administra una conexión con MySQL.
     """
 
     def __init__(self, db):
@@ -20,13 +20,13 @@ class MySQLConnection:
         y establece la conexión.
         """
 
-        self.connection = pymysql.connect(
+        connection = pymysql.connect(
 
             host="localhost",
 
             user="root",
 
-            password="1234",
+            password="",
 
             database=db,
 
@@ -39,25 +39,20 @@ class MySQLConnection:
         )
 
 
+        self.connection = connection
+
+
     # ======================================================
     # EJECUTAR CONSULTA
     # ======================================================
 
-    def query_db(self, query, data=None):
+    def query_db(
+        self,
+        query,
+        data=None
+    ):
         """
         Ejecuta una consulta SQL.
-
-        SELECT:
-            devuelve una lista de diccionarios.
-
-        INSERT:
-            devuelve el ID generado.
-
-        UPDATE / DELETE:
-            no devuelven una lista de registros.
-
-        Error:
-            devuelve False.
         """
 
         with self.connection.cursor() as cursor:
@@ -65,7 +60,22 @@ class MySQLConnection:
             try:
 
                 # --------------------------------------------------
-                # Ejecutar consulta con parámetros.
+                # Mostrar consulta durante el desarrollo.
+                # --------------------------------------------------
+
+                query_debug = cursor.mogrify(
+                    query,
+                    data
+                )
+
+                print(
+                    "Running Query:",
+                    query_debug
+                )
+
+
+                # --------------------------------------------------
+                # Ejecutar consulta.
                 # --------------------------------------------------
 
                 cursor.execute(
@@ -75,23 +85,25 @@ class MySQLConnection:
 
 
                 # --------------------------------------------------
-                # SELECT
-                # --------------------------------------------------
-
-                if query.strip().lower().startswith("select"):
-
-                    resultados = cursor.fetchall()
-
-                    return resultados
-
-
-                # --------------------------------------------------
                 # INSERT
                 # --------------------------------------------------
 
-                elif query.strip().lower().startswith("insert"):
+                if query.lower().find("insert") >= 0:
+
+                    self.connection.commit()
 
                     return cursor.lastrowid
+
+
+                # --------------------------------------------------
+                # SELECT
+                # --------------------------------------------------
+
+                elif query.lower().find("select") >= 0:
+
+                    result = cursor.fetchall()
+
+                    return result
 
 
                 # --------------------------------------------------
@@ -100,16 +112,15 @@ class MySQLConnection:
 
                 else:
 
-                    return None
+                    self.connection.commit()
 
 
             except Exception as e:
 
                 print(
-                    "Something went wrong:"
+                    "Something went wrong:",
+                    e
                 )
-
-                print(e)
 
                 return False
 
@@ -129,7 +140,7 @@ class MySQLConnection:
 
 def connectToMySQL(db):
     """
-    Recibe el nombre de la base de datos
+    Recibe el nombre de una base de datos
     y devuelve una instancia de MySQLConnection.
     """
 
