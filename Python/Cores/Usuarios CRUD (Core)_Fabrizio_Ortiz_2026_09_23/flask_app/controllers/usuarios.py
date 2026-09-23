@@ -4,7 +4,7 @@ from flask import render_template, request, redirect, url_for
 
 from flask_app.models.usuario import Usuario
 
-
+@app.route("/")
 @app.route("/usuarios")
 def usuarios():
     lista_usuarios = Usuario.get_all()
