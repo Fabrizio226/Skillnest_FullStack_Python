@@ -24,6 +24,13 @@ app = Flask(__name__)
 # Aunque actualmente no necesitamos ambas obligatoriamente,
 # dejamos la configuración preparada para la aplicación.
 #
+
+from flask import Flask
+
+app = Flask(__name__, template_folder='../templates')
+app.secret_key = "keep_it_secret_keep_it_safe"
+
+
 # En un proyecto real esta clave debería mantenerse fuera
 # del código utilizando variables de entorno.
 # ==========================================================
