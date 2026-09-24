@@ -1,10 +1,15 @@
+# las mismas importanmciones de siempre
 from flask_app import app
+
 
 from flask import render_template, request, redirect, url_for
 
+
 from flask_app.models.usuario import Usuario
 
+
 @app.route("/")
+#esto de la ruta vacia lo aprendi curioseando
 @app.route("/usuarios")
 def usuarios():
     lista_usuarios = Usuario.get_all()
@@ -32,7 +37,7 @@ def crear():
         return render_template(
             "nuevo.html",
             error="Todos los campos son obligatorios.",
-            datos=data
+            datos=data 
         )
 
     resultado = Usuario.save(data)
@@ -51,6 +56,7 @@ def crear():
 def detalle(id):
     usuario = Usuario.get_by_id(id)
 
+    # por si algun chistoso busca un id que no exist3
     if usuario is None:
         return "Usuario no encontrado", 404
 
@@ -83,7 +89,7 @@ def actualizar(id):
     }
 
     if not data["nombre"] or not data["apellido"] or not data["email"]:
-        usuario = Usuario.get_by_id(id)
+        usuario = Usuario.get_by_id(id) # Reconsultamos para refrescar la plantilla
 
         return render_template(
             "editar.html",
@@ -107,6 +113,7 @@ def actualizar(id):
 
 @app.route("/usuarios/borrar/<int:id>")
 def borrar(id):
+
     data = {
         "id": id
     }
@@ -117,3 +124,5 @@ def borrar(id):
         return "No fue posible eliminar el usuario.", 500
 
     return redirect(url_for("usuarios"))
+
+#el tecladode esta pc se siente como piedra

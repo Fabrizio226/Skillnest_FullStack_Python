@@ -1,5 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-
+# importaniones xd
 class Usuario:
     def __init__(self, data):
         self.id = data["id"]
@@ -78,3 +78,5 @@ class Usuario:
         """
 
         return connectToMySQL("esquema_usuarios").query_db(query, data)
+
+#este tecladio se siente tan duro al presionar una tecloa yl la barra esopaciadora parece un columpio 
