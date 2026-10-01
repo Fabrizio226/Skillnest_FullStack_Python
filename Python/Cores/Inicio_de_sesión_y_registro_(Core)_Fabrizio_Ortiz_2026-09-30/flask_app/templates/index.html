@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión y Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <div class="card">
+            <h2>Registro</h2>
+
+
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                    <ul class="errors">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form action="/register" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+
+                <label for="email_reg">E-mail:</label>
+                <input type="email" id="email_reg" name="email" required>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+
+                <label for="password_reg">Contraseña:</label>
+                <input type="password" id="password_reg" name="password" required>
+
+                <label for="confirm_password">Conf. Contraseña:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+
+
+        <div class="card">
+            <h2>Inicio de Sesión</h2>
+
+
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% if messages %}
+                    <ul class="errors">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form action="/login" method="POST">
+                <label for="email_login">E-mail:</label>
+                <input type="email" id="email_login" name="email" required>
+
+                <label for="password_login">Contraseña:</label>
+                <input type="password" id="password_login" name="password" required>
+
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
