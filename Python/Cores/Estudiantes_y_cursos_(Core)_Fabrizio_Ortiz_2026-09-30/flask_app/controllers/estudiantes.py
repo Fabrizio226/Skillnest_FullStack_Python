@@ -11,8 +11,6 @@ from flask_app.models.curso import Curso
 from flask_app.models.estudiante import Estudiante
 
 
-
-
 @app.route("/estudiantes/nuevo")
 def nuevo_estudiante():
     """
