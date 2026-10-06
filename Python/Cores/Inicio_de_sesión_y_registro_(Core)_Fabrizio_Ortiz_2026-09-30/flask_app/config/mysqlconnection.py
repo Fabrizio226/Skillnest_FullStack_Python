@@ -6,13 +6,27 @@ load_dotenv()
 
 class MySQLConnection:
     def __init__(self, db):
-        connection = pymysql.connect(
-            host=os.getenv('DB_HOST', 'localhost'),
-            user=os.getenv('DB_USER', 'root'),
-            password=os.getenv('DB_PASSWORD', ''),
-            db=db,
-            charset='utf8mb4',
+        self.connection = pymysql.connect(
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=db,
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True
         )
-        self.connection = connection
+
+    def query_db(self, query, data=None):
+        with self.connection.cursor() as cursor:
+            try:
+                cursor.execute(query, data or {})
+                if query.strip().lower().startswith("select"):
+                    return cursor.fetchall()
+                return cursor.lastrowid
+            except Exception as e:
+                print(f"Error MySQL: {e}")
+                return False
+            finally:
+                self.connection.close()
+
+def connectToMySQL(db):
+    return MySQLConnection(db)
